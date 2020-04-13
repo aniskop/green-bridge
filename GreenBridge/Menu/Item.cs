@@ -2,7 +2,7 @@
 {
     public class Item : PlsqlDeveloperMenuEntry
     {
-        public Item(int id, string name) : base(id, name)
+        internal Item(int id, string name) : base(id, name)
         {
         }
 

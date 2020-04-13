@@ -1,13 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GreenBridge.Menu
 {
     public class PlsqlDeveloperMenuEntry
     {
+        /// <summary>
+        /// Event handlers for the click event on the menu items (large items, subitems, items etc).
+        /// <seealso cref="MenuEntryClickEventArgs"/>
+        /// </summary>
+        internal event EventHandler<MenuEntryClickEventArgs> Click;
         protected PlsqlDeveloperMenuEntry(int id, string name)
         {
             Id = id;
@@ -25,5 +26,16 @@ namespace GreenBridge.Menu
             protected set;
             get;
         }
+
+        /// <summary>
+        /// Invokes all <see cref="Click"/> event handlers for this item, if any.
+        /// </summary>
+        /// <param name="e">Event arguments, containing menu index.</param>
+        internal void HandleClick(MenuEntryClickEventArgs e)
+        {
+            Click?.Invoke(this, e);
+        }
+
+
     }
 }

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GreenBridge.Menu
+﻿namespace GreenBridge.Menu
 {
     /// <summary>
     /// Represents PL/SQL Developer menu with tabs, groups, menu items, large items etc.
@@ -20,18 +15,15 @@ namespace GreenBridge.Menu
     public class PlsqlDeveloperMenu
     {
         private PlsqlDeveloperMenuEntry[] menuEntries;
-        private string[] clickHandlers;
 
         /// <summary>
         /// Creates an instance of PL/SQL Developer menu. 
         /// Use <see cref="PlsqlDeveloperMenuBuilder"/> to create the menu.
-
         /// <seealso cref="PlsqlDeveloperMenuBuilder"/>
         /// </summary>
-        PlsqlDeveloperMenu(PlsqlDeveloperMenuEntry[] entries, string[] clickHandlers)
+        internal PlsqlDeveloperMenu(PlsqlDeveloperMenuEntry[] entries)
         {
             menuEntries = entries;
-            this.clickHandlers = clickHandlers;
         }
 
         /// <summary>
@@ -50,15 +42,11 @@ namespace GreenBridge.Menu
         public void HandleClick(int menuIndex)
         {
             // Menu index starts from 1.
-            if (menuIndex >= 1 && menuIndex <= clickHandlers.Length)
+            if (menuIndex >= 1 && menuIndex <= menuEntries.Length)
             {
-                string handler = clickHandlers[menuIndex - 1];
-                if (handler != null)
-                {
-                    //TODO: call handler
-                }
+                PlsqlDeveloperMenuEntry menuEntry = menuEntries[menuIndex - 1];
+                menuEntry.HandleClick(new MenuEntryClickEventArgs(menuIndex));
             }
         }
-
     }
 }

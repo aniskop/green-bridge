@@ -8,7 +8,7 @@ namespace GreenBridge.Menu
 {
     public class Group : PlsqlDeveloperMenuEntry
     {
-        public Group(int id, string name) : base(id, name)
+        internal Group(int id, string name) : base(id, name)
         {
         }
 

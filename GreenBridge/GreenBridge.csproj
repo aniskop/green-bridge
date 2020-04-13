@@ -44,6 +44,7 @@
     <Compile Include="Menu\Group.cs" />
     <Compile Include="Menu\Item.cs" />
     <Compile Include="Menu\LargeItem.cs" />
+    <Compile Include="Menu\MenuEntryClickEventArgs.cs" />
     <Compile Include="Menu\MenuItem.cs" />
     <Compile Include="Menu\PlsqlDeveloperMenu.cs" />
     <Compile Include="Menu\PlsqlDeveloperMenuBuilder.cs" />
