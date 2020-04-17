@@ -25,7 +25,11 @@ namespace GreenBridge.Core
     #endregion
 
     #region IDE callbacks
+    public delegate IntPtr IdeGetPersonalPrefSetsCallback();
 
+    public delegate IntPtr IdeGetPrefAsStringCallback(int pluginId, string prefSet, string name, string defaultValue);
+
+    public delegate IntPtr IdeGetGeneralPrefCallback(string name);
     #endregion
 
     #region SQL callbacks
@@ -51,7 +55,9 @@ namespace GreenBridge.Core
         #endregion
 
         #region IDE callbacks indexes
-
+        public const int IDE_GET_PERSONAL_PREF_SETS = 210;
+        public const int IDE_GET_PREF_AS_STRING = 212;
+        public const int IDE_GET_GENERAL_PREF = 218;
         #endregion
 
         #region SQL callbacks indexes

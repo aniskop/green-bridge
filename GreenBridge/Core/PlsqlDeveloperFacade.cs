@@ -53,10 +53,24 @@ namespace GreenBridge.Core
                     sysOciDll = Marshal.GetDelegateForFunctionPointer<SysOciDllCallback>(func);
                     break;
 
+                case Callback.IDE_GET_PERSONAL_PREF_SETS:
+                    ideGetPersonalPrefSets = Marshal.GetDelegateForFunctionPointer<IdeGetPersonalPrefSetsCallback>(func);
+                    break;
+
+                case Callback.IDE_GET_PREF_AS_STRING:
+                    ideGetPrefAsString = Marshal.GetDelegateForFunctionPointer<IdeGetPrefAsStringCallback>(func);
+                    break;
+
+                case Callback.IDE_GET_GENERAL_PREF:
+                    ideGetGeneralPref = Marshal.GetDelegateForFunctionPointer<IdeGetGeneralPrefCallback>(func);
+                    break;
+
                 default:
                     break;
             }
         }
+
+        #region SYS callbacks
 
         private SysVersionCallback sysVersion;
         public int SYS_Version()
@@ -117,6 +131,40 @@ namespace GreenBridge.Core
             }
             return sysOci8Mode();
         }
+        #endregion
+
+        #region IDE callbacks
+
+        private IdeGetPersonalPrefSetsCallback ideGetPersonalPrefSets;
+        public string IDE_GetPersonalPrefSets()
+        {
+            if (ideGetPersonalPrefSets == null)
+            {
+                throw NotRegistered(typeof(IdeGetPersonalPrefSetsCallback));
+            }
+            return Marshal.PtrToStringAnsi(ideGetPersonalPrefSets());
+        }
+
+        private IdeGetPrefAsStringCallback ideGetPrefAsString;
+        public string IDE_GetPrefAsString(int pluginId, string prefSet, string name, string defaultValue)
+        {
+            if (ideGetPrefAsString == null)
+            {
+                throw NotRegistered(typeof(IdeGetPrefAsStringCallback));
+            }
+            return Marshal.PtrToStringAnsi(ideGetPrefAsString(pluginId, prefSet, name, defaultValue));
+        }
+
+        private IdeGetGeneralPrefCallback ideGetGeneralPref;
+        public string IDE_GetGeneralPref(string name)
+        {
+            if (ideGetGeneralPref == null)
+            {
+                throw NotRegistered(typeof(IdeGetGeneralPrefCallback));
+            }
+            return Marshal.PtrToStringAnsi(ideGetGeneralPref(name));
+        }
+        #endregion
 
         private NullReferenceException NotRegistered(Type t)
         {

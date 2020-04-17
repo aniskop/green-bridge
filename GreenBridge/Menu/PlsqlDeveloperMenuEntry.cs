@@ -36,6 +36,6 @@ namespace GreenBridge.Menu
             Click?.Invoke(this, e);
         }
 
-
+        public static readonly PlsqlDeveloperMenuEntry Empty = new PlsqlDeveloperMenuEntry(-1, "");
     }
 }

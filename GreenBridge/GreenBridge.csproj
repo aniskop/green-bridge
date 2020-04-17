@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Core\Callback.cs" />
     <Compile Include="Core\PlsqlDeveloperFacade.cs" />
+    <Compile Include="Core\PlsqlDeveloperPlugin.cs" />
     <Compile Include="Menu\Group.cs" />
     <Compile Include="Menu\Item.cs" />
     <Compile Include="Menu\LargeItem.cs" />

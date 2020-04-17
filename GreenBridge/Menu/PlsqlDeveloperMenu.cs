@@ -48,5 +48,16 @@
                 menuEntry.HandleClick(new MenuEntryClickEventArgs(menuIndex));
             }
         }
+
+        public PlsqlDeveloperMenuEntry Entry(int menuIndex)
+        {
+            if (menuIndex >= 1 && menuIndex <= menuEntries.Length)
+            {
+                return menuEntries[menuIndex - 1];
+            } else
+            {
+                return PlsqlDeveloperMenuEntry.Empty;
+            }
+        }
     }
 }

@@ -106,7 +106,7 @@ namespace GreenBridge.Menu
         /// <returns></returns>
         public PlsqlDeveloperMenu Build()
         {
-            return new PlsqlDeveloperMenu(menuEntries.ToArray<PlsqlDeveloperMenuEntry>());
+            return new PlsqlDeveloperMenu(menuEntries.ToArray());
         }
     }
 }
