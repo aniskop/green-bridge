@@ -25,7 +25,8 @@ github_username: aniskop
 # markdown: kramdown
 # theme: jekyll-theme-cayman
 # remote_theme: allejo/jekyll-docs-theme@v1.0.0-beta.4
-remote_theme: chrisrhymes/bulma-clean-theme
+# remote_theme: chrisrhymes/bulma-clean-theme
+remote_theme: allejo/jekyll-docs-theme
 plugins:
   - jekyll-feed
 
