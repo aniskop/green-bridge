@@ -26,7 +26,7 @@ github_username: aniskop
 # theme: jekyll-theme-cayman
 # remote_theme: allejo/jekyll-docs-theme@v1.0.0-beta.4
 # remote_theme: chrisrhymes/bulma-clean-theme
-remote_theme: allejo/jekyll-docs-theme
+remote_theme: allejo/jekyll-docs-theme@v1.0.0-beta.4
 plugins:
   - jekyll-feed
 
