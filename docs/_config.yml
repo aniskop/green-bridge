@@ -16,7 +16,7 @@
 title: Green Bridge
 #email: your-email@example.com
 #description: >- # this means to ignore newlines until "baseurl:"
-  PL/SQL Developer plug-ins development framework.
+#  PL/SQL Developer plug-ins development framework.
 baseurl: "/green-bridge" # the subpath of your site, e.g. /blog
 url: "https://aniskop.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
