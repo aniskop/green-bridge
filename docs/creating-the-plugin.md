@@ -1,6 +1,14 @@
 ---
 title: "Creating the plug-in"
 layout: page
+nav_order: 2
+---
+
+## In this article
+{: .no_toc .text-delta }
+* TOC
+{:toc}
+
 ---
 
 Usually a process of creating a PL/SQL Developer plug-in involves:
@@ -33,7 +41,8 @@ In the examples below `Me` is the reference to the `YourPlugin` object instance.
 
 ## How to...
 
-**Register the plug-in**  
+### Register the plug-in
+
 `YourPluginFacade` calls `YourPlugin()` constructor, providing the plug-in ID and the name.
 ```csharp
 [DllExport("IdentifyPlugIn", CallingConvention = CallingConvention.Cdecl)]
@@ -44,7 +53,8 @@ public static string IdentifyPlugIn(int id)
 }
 ```
 
-**Register the callbacks**  
+### Register the callbacks
+
 First, `YourPlugin` must specify the required callbacks in the `RequiredCallbacks` property. Constructor is the right place to do so. All callbacks IDs are stored in the `GreenBridge.Core.Callback` class.
 ```csharp
 RequiredCallbacks = new int[] { Callback.IDE_GET_GENERAL_PREF,
@@ -61,7 +71,8 @@ public static void RegisterCallback(int index, IntPtr func)
 }
 ```
 
-**Create the menu**  
+### Create the menu
+
 First, `YourPlugin` must define the structure of the menu and click handlers via `Menu` attribute. See [Working with menu]() for more details. Constructor of `YourPlugin` is the right place to create menu.
 ```csharp
 Menu = new PlsqlDeveloperMenuBuilder().Group("Appearance").Item("Customize", Customize_Click).Build();
@@ -76,7 +87,8 @@ public static string CreateMenuItem(int index)
 }
 ```
 
-**Handle the menu click**  
+### Handle the menu click
+
 `YourPluginFacade` calls `Menu.HandleClick` method, which will call the handler, that was specified at the time of menu creation.
 ```csharp
 [DllExport("OnMenuClick", CallingConvention = CallingConvention.Cdecl)]
