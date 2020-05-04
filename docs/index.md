@@ -3,10 +3,11 @@
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 
 layout: page
-homepage: true
-title: "GreenBridge"
-description: "PL/SQL Developer plug-ins development framework"
+title: "Home"
 ---
+
+[![](./assets/images/github32.png){: .v-align-middle}View on GitHub](https://github.com/aniskop/green-bridge){: .btn .btn-grey .mr-2}
+
 **GreenBridge** is the framework for developing PL/SQL Developer plug-ins in C#. The major goal of the framework is to help the developer get rid of routine tasks or make some tasks easier when creating the plug-in. The routine tasks are:
 * Declaring delegates for PL/SQL Developer callback functions.
 * Registering callbacks.
